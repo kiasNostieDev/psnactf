@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow&display=swap');
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 80%;
+    background-color: #1e1f1d;
+}
+
+@keyframes tilt-in-fwd-tr {
+  0% {
+    -webkit-transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+            transform: rotateY(20deg) rotateX(35deg) translate(300px, -300px) skew(-35deg, 10deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+            transform: rotateY(0) rotateX(0deg) translate(0, 0) skew(0deg, 0deg);
+    opacity: 1;
+  }
+}
+
+
+@keyframes blink-2 {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce-right {
+    0% {
+      -webkit-transform: translateX(48px);
+              transform: translateX(48px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 1;
+    }
+    24% {
+      opacity: 1;
+    }
+    40% {
+      -webkit-transform: translateX(26px);
+              transform: translateX(26px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    65% {
+      -webkit-transform: translateX(13px);
+              transform: translateX(13px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    82% {
+      -webkit-transform: translateX(6.5px);
+              transform: translateX(6.5px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    93% {
+      -webkit-transform: translateX(4px);
+              transform: translateX(4px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    25%,
+    55%,
+    75%,
+    87%,
+    98% {
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    100% {
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes shake-vertical {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateY(8px);
+            transform: translateY(8px);
+  }
+  80% {
+    -webkit-transform: translateY(6.4px);
+            transform: translateY(6.4px);
+  }
+  90% {
+    -webkit-transform: translateY(-6.4px);
+            transform: translateY(-6.4px);
+  }
+}
+
+
+@keyframes kenburns-top {
+    0% {
+      -webkit-transform: scale(1) translateY(0);
+              transform: scale(1) translateY(0);
+      -webkit-transform-origin: 50% 16%;
+              transform-origin: 50% 16%;
+    }
+    100% {
+      -webkit-transform: scale(1.25) translateY(-15px);
+              transform: scale(1.25) translateY(-15px);
+      -webkit-transform-origin: top;
+              transform-origin: top;
+    }
+}
+
+*{
+    margin: 0%;
+    padding: 0%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    cursor: url('../images/cursor.svg'), move;
+}
+
+.home{
+    background-image: url(../images/PSNA.png);
+    background-color: #1f1e1d;
+
+    /* Full height  #171716*/
+    height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: top center;
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.movereg{
+    position: absolute;
+    border: solid;
+    border-width: 3px;
+    border-color: gray;
+    margin: 20% 0 0 3%;
+    color: white;
+    width: 40px;
+    padding: 10px 10px 10px 10px;
+    word-wrap: break-word;
+    font-size: 15pt;
+    text-transform: uppercase;
+    background-color: unset;
+    font-family: 'Gothic A1';
+    transition: ease-in-out;
+}
+
+.movereg:hover{
+    color: black;
+    background-color: white;
+    border-color: orangered;
+    animation: shake-vertical 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+.contestTitle{
+    position: absolute;
+    color: orangered;
+    margin: 4% 0 0 3%;
+    font-family: 'Gothic A1';
+    font-size: 30pt;
+    transition: ease-in-out;
+}
+
+.contestTitle:hover{
+    animation-name: bounce-right;
+    animation-duration: 0.8s;
+    animation-fill-mode: both;
+}
+
+.titledesc{
+    position: absolute;
+    color: white;
+    width: 62%;
+    margin: 14% 0 0 14%;
+    font-family: 'Gothic A1';
+    font-size: 50pt;
+    transition: ease-in-out;
+    animation-name: tracking-in-expand;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+}
+
+.description{
+    width: 35%;
+    word-wrap: break-word;
+    color: gray;
+    margin: 28% 0 0 14%;
+    font-family: 'Barlow';
+    font-size: 20pt;
+    font-weight: thin;
+    position: absolute;
+    letter-spacing: 1.5px;
+    transition: ease-in-out 0.5s;
+}
+
+.description:hover{
+    color: rgb(187, 187, 187);
+}
+
+/* What is CTF */
+.whatisctf{
+    width: 100vw;
+    height: 50vh;
+    position: absolute;
+    margin-top: 100vh;
+    background-color: #1e1f1d;
+}
+
+.svgctf{
+    float: left;
+    margin-left: 15%;
+    margin-top: 13vh;
+    width: 30%;
+}
+
+.explactf{
+    float: left;
+    margin-top: 1vh;
+    width: 55%;
+}
+
+.ctftitle{
+    font-size: 37pt;
+    color: rgb(206, 206, 206);
+    margin-top: 6vh;
+    letter-spacing: 1.5px;
+    font-family: 'Gothic A1';
+}
+
+.ctfdesc{
+    color: rgb(224, 102, 58);
+    font-size: 17pt;
+    width: 70%;
+    margin-top: 5vh;
+    font-weight: thin;
+    font-family: 'Barlow';   
+    letter-spacing: 1.5px;
+    transition: ease-in-out 0.5s;
+}
+
+/* Contest Details */
+.contestdata{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    margin-top: 150vh;
+    background-image: url(../images/PSNA1.png);
+    background-color: #1e1f1d;
+
+    /* Full height  #171716*/
+    height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: top center;
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    animation: tilt-in-fwd-tr 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.rightholder1{
+    float: right;
+    width: 22%;
+    height: fit-content;
+    margin-top: 10vh;
+    margin-right: 13%;
+}
+
+.subtitle1{
+    float: right;
+    font-family: 'Gothic A1';
+    font-size: 27pt;
+    color: tomato;
+}
+
+.startOfContest{
+    color: white;
+    margin-top: 10vh;
+    font-size: 15pt;
+    font-family: 'Gothic A1';
+}
+
+.lefttholder1{
+    float: left;
+    width: 23%;
+    height: fit-content;
+    margin-top: 68vh;
+    margin-left: 13%;
+}
+
+.subtitle2{
+    font-family: 'Gothic A1';
+    font-size: 27pt;
+    color: tomato;
+    float: left;
+}
+
+.stagesOfFlags{
+    color: white;
+    margin-top: 10vh;
+    font-size: 15pt;
+    font-family: 'Gothic A1';
+}
+
+.halfway{
+    width: 80vw;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    font-size: 22pt;
+    color: white;
+    font-family: 'Gothic A1';
+    margin-top: 250vh;
+    height: 30vh;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    position: absolute;
+    background-color: #1e1f1d;
+    background-image: url(../images/PSNA2MID.png);
+    background-position: top center;
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.contestdata1{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    margin-top: 300vh;
+    background-image: url(../images/PSNA2.png);
+    background-color: #1e1f1d;
+
+    /* Full height  #171716*/
+    height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: top center;
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.leftholder2{
+    float: left;
+    width: 23%;
+    height: fit-content;
+    margin-top: 10vh;
+    margin-left: 13%;
+}
+
+.surityOfFlag{
+    color: white;
+    margin-top: 10vh;
+    font-size: 15pt;
+    font-family: 'Gothic A1';
+}
+
+.rightholder2{
+    width: 22%;
+    float: right;
+    height: fit-content;
+    margin-top: 60vh;
+    margin-right: 13%;
+}
+
+.timelyFlags{
+    color: white;
+    margin-top: 10vh;
+    font-size: 15pt;
+    font-family: 'Gothic A1';
+}
+
+/* Register Part */
+.registerparti{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    margin-top: 400vh;
+    background-color: white;
+    background-image: url('../images/PSNAEND.png');
+
+    /* Full height  #171716*/
+    height: 100vh;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.inputreg{
+    margin-left: 50%;
+    margin-top: 4%;
+}
+
+.regbtn{
+    border: solid;
+    border-width: 2px;
+    border-color: grey;
+    cursor: unset;
+    font-family: 'Gothic A1';
+    font-size: 10pt;
+    text-align: center;
+    letter-spacing: 1.5px;
+    padding: 10px;
+    background-color: white;
+}
+
+.regbtn:hover{
+    color: white;
+    background-color: gray;
+    border-color: black;
+}
+
+
+@media only screen and (max-width: 900px){
+    .home{
+        background-image: url(../images/PSNAM.png);
+        background-position: right;
+    }
+
+    .movereg{
+        position: absolute;
+        border: solid;
+        border-width: 3px;
+        border-color: gray;
+        margin: 150% 0 0 3%;
+        color: white;
+        width: fit-content;
+        padding: 10px 10px 10px 10px;
+        word-wrap: break-word;
+        font-size: 10pt;
+        text-transform: uppercase;
+        background-color: unset;
+        font-family: 'Gothic A1';
+        transition: ease-in-out;
+    }
+    
+    .titledesc{
+        /* visibility: hidden; */
+        font-size: 20pt;
+        margin: 40% 0 0 3%;
+    }
+
+    .description{
+        width: 57%;
+        font-size: 15pt;
+        margin: 63% 0 0 3%;
+    }
+
+    /* what is ctf */
+    .svgctf{
+        width: 30%;
+        margin-left: 10%;
+        height: 40%;
+    }
+
+    .ctftitle{
+        font-size: 20pt;
+    }
+
+    .ctfdesc{
+        font-size: 10pt;
+    }
+
+    /* Contest Details */
+
+    .rightholder1{
+        width: 35%;
+    }
+    
+    .subtitle1{
+        font-size: 20pt;
+    }
+
+    .startOfContest{
+        font-size: 13pt;
+    }
+
+    .lefttholder1{
+        width: 35%;
+    }
+
+    .subtitle2{
+        font-size: 20pt;
+    }
+
+    .stagesOfFlags{
+        font-size: 13pt;
+    }
+
+    .halfway{
+        font-size: 12pt;
+        color: white;
+        background-image: url(../images/PSNAMMID.png);
+    }
+
+    .contestdata{
+        background-image: none;
+        background-image: url(../images/PSNA1M.png);
+    }
+
+    .contestdata1{
+        background-image: none;
+        background-image: url(../images/PSNA2M.png);
+    }
+
+    .leftholder2{
+        width: 45%;
+        margin-left: 8%;
+        margin-top: 7vh;
+    }
+
+    .surityOfFlag{
+        font-size: 13pt; 
+    }
+
+    .rightholder2{
+        width: 35%;
+        margin-top: 25vh;
+    }
+
+    .timelyFlags{
+        font-size: 13pt;
+    }
+
+    /* registerpart */
+    .registerparti{
+        background-image: none;
+    }
+
+    .inputreg{
+        margin-left: 20%;
+    }
+}
