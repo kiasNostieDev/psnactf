@@ -1,9 +1,11 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import '../styles/home.css'
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import { FormHelperText, makeStyles, OutlinedInput} from "@material-ui/core";
 import axios from "axios";
+import { InfoRounded } from "@material-ui/icons";
+import logo from '../images/nobgpsnalogo.png'
 
 const useStyles = makeStyles((theme) => ({
   text: {
@@ -28,7 +30,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Home() {
   const findref = useRef(null)
   let name, phone, mail, clg, regid, pwd
-  const classes = useStyles();
+  const classes = useStyles()
+  const [clasdet, setClasdet] = useState('clgdetail')
 
   function clickityclackity(){
     console.log(name, phone, mail, clg, regid, pwd)
@@ -42,6 +45,7 @@ export default function Home() {
         collegeRegId: regid,
         password: pwd
       }).then((res) => {
+        if(res.data === 'account already exist!')alert('Account with same e-mail/phone already exists')
         if (res.data.message) alert('Try Again with clear details')
         alert('Registered')
       }, (error) => {
@@ -56,8 +60,17 @@ export default function Home() {
     {/* Home Page Content */}
     <div className='contestTitle'>Clash for Flags.</div>
     <button className='movereg' onClick={()=>findref.current.scrollIntoView()}>register</button>
-    <div className='titledesc'>A mini CTF styled contest designed in ease</div>
-    <div className='description'>An online challenge for students to experience the real CTF environment. Enter and capture them flags gradually.</div>
+    <div className='titledesc'>A mini CTF styled contest designed in ease.</div>
+    <div className='description'>An online challenge for students to experience the real CTF made by CSE dept of PSNA Collge of Engineering and Technology. Enter and capture the flags gradually.</div>
+
+    {/* TIL PSNA 
+    {/* <div className='tilpsna'>
+      <div className='explatil'>
+        <div className='tiltitle'>We, PSNACET!</div>
+        <div className='tildesc'>PSNACET is a brand name in South TamilNadu for conveying Quality Education. We thrive to make students exile in their field of interest while providing support to their college life. </div>
+      </div>
+      <div className='svgtil'><img src={logo} alt='logo'/></div>
+    </div> */}
 
     {/* What is CTF */}
     <div className='whatisctf'>
@@ -83,7 +96,7 @@ export default function Home() {
     
     </div>
 
-    <div className='halfway'>After registering you can come back to this same site on contest day and you can start your process from there! As it progresses, after a certain amount of time all participants will be notified of the end of the competition and according to the flag rules a winner will be announced and they will recieve a cash award of Rupees 1000</div>
+    <div className='halfway'>After registering you can come back to this same site on contest day and you can start your process from here! As it progresses, after a certain amount of time all participants will be notified of the end of the competition and according to the flag rules 3 winners will be announced and they will recieve a cash award of Rupees 1000, 750 and 500 respectively</div>
 
     <div className='contestdata1'>
       
@@ -133,7 +146,7 @@ export default function Home() {
         <FormControl  className={classes.textmid} style={{marginLeft: '4%'}} variant="outlined">
             <InputLabel htmlFor="standard-adornment-amount" >RegisterID</InputLabel>
             <OutlinedInput labelWidth={100} onChange={(e)=>regid=e.target.value}/>
-            <FormHelperText>RegisterID provided from College</FormHelperText>
+            <FormHelperText>University RegisterID</FormHelperText>
         </FormControl>
         <div style={{marginTop: '2%'}}></div>
 
